@@ -341,12 +341,12 @@
           </dl>
         </div>
         <div class="story-item">
-          <p class="story-q">직접 써보고 기획자에게 제안한 개선</p>
-          <p class="story-lead">기획자, 디자이너와 함께 MVP를 직접 써보며 사용자 입장에서 불편한 점을 찾았고, 개선안을 기획자와 논의해 구현했습니다.</p>
+          <p class="story-q">MVP 기획 단계에서 제안한 건강 데이터 연동</p>
+          <p class="story-lead">초기 앱 기획과 MVP 개발 당시, 운동 기록에 워치 건강 데이터를 써야 한다고 제안했습니다.</p>
           <dl>
-            <div><dt>운동 기록</dt><dd><b class="vs">수기 입력에 더해 건강 데이터 자동 연동</b>운동을 매번 손으로 입력해야 하는 점이 불편했습니다. 핏버디에서 워치 건강 데이터를 연동해 본 경험을 살려, iOS는 HealthKit, Android는 Health Connect에서 걸음 수와 운동 기록을 가져오도록 했습니다. 앱을 열거나 다시 돌아올 때마다 자동으로 동기화하고, 기록이 누락되지 않도록 서버의 기록일을 기준(SSoT)으로 맞춥니다.</dd></div>
-            <div><dt>홈 위젯</dt><dd><b class="vs">앱을 열지 않고 바로 기록 화면으로</b>기록에 더 쉽게 접근할 수 있도록 홈 화면 위젯을 제안했습니다. iOS는 WidgetKit, Android는 Glance로 네이티브 위젯을 만들고, 위젯의 네 영역을 누르면 딥링크로 체중, 운동, 식사 같은 해당 기록 화면이 바로 열리게 했습니다.</dd></div>
-            <div><dt>결과</dt><dd>워치나 휴대폰으로 운동하면 따로 입력하지 않아도 기록과 미션에 반영되고, 홈 화면에서 바로 기록을 시작할 수 있습니다.</dd></div>
+            <div><dt>제안</dt><dd>운동을 매번 손으로 입력해야 하는 구조는 사용자에게 불편하다고 봤습니다. 핏버디에서 워치 건강 데이터를 연동해 본 경험을 근거로 필요성을 설명했습니다.</dd></div>
+            <div><dt>논의</dt><dd><b class="vs">수기 입력에 더해 플랫폼별 건강 데이터 연동</b>기획자, 디자이너와 논의해 iOS는 HealthKit, Android는 Health Connect에서 걸음 수와 운동 기록을 가져오도록 했습니다. 앱을 열거나 다시 돌아올 때마다 자동으로 동기화하고, 기록이 누락되지 않도록 서버의 기록일을 기준(SSoT)으로 맞춥니다.</dd></div>
+            <div><dt>결과</dt><dd>워치나 휴대폰으로 운동하면 따로 입력하지 않아도 기록과 미션에 반영됩니다.</dd></div>
           </dl>
         </div>
         <div class="story-item">
@@ -390,6 +390,7 @@
           <li><b>회귀 테스트</b><span>결제, 로그인처럼 깨지면 매출에 바로 영향을 주는 흐름을 회귀 테스트로 고정하고, PR마다 CI에서 자동 실행해 머지 전에 차단</span></li>
           <li><b>글로벌 출시</b><span>kg/lb 지원. 스토어 계정 국가에 따라 결제와 로그인 수단 분리</span></li>
           <li><b>인앱결제</b><span>구독 결제와 구매 복원. 비구독, 체험, 유료 등급별 기능 잠금을 서버 SSoT 기준으로 처리</span></li>
+          <li><b>홈 위젯</b><span>기록 화면에 바로 들어갈 수 있게 제안해 구현. iOS는 WidgetKit, Android는 Glance로 만들고, 네 영역을 누르면 딥링크로 체중, 운동, 식사 등 해당 기록 화면을 바로 열기</span></li>
           <li><b>Crashlytics 모니터링</b><span>화면, 비동기, Isolate 오류를 모두 수집. 사용자 ID를 결제, 분석과 같은 값으로 묶어 원인 추적, iOS dSYM 자동 업로드</span></li>
           <li><b>웹 페이지</b><span>서비스 랜딩 페이지(<a href="https://keepology.ai">keepology.ai</a>)와 회사 웹사이트(<a href="https://twothreefour.one">twothreefour.one</a>)도 직접 개발</span></li>
         </ul></div>
