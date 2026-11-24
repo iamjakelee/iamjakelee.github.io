@@ -168,10 +168,8 @@
   .badge { display: inline-flex; line-height: 0; border-radius: 8px; }
   .badge img { height: 40px; width: auto; }
   .badge.gp img { height: 58px; margin: -9px -10px; }
-  /* 직접 만든 웹 페이지 링크: 오른쪽 스토어 배지 아래 */
-  .proj-links { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
-  /* Google Play 배지 PNG의 오른쪽 투명 여백(약 18px)만큼 들여 배지 끝선에 맞춤 */
-  .site-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; margin: 0 18px 0 0; }
+  /* 직접 만든 웹 페이지 링크: 앱 아이콘 아래 한 줄로 가로 배치. 스토어 배지는 오른쪽 위 그대로 */
+  .site-links { flex: 0 0 100%; display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
   .site-link { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); font-size: 0.8125rem; font-weight: 600; text-decoration: none; }
   .site-link:hover { background: var(--chip); }
   .site-link svg { width: 16px; height: 16px; flex: none; color: var(--sub); }
@@ -231,8 +229,6 @@
   }
   @media (max-width: 700px) {
     .proj-title { gap: 14px; align-items: flex-start; }
-    .proj-links { align-items: flex-start; }
-    .site-links { justify-content: flex-start; margin-right: 0; }
     .site-link { padding: 0 10px; }
     .site-link svg { display: none; }
     .proj-icon { width: 56px; height: 56px; border-radius: 13px; }
@@ -316,7 +312,7 @@
     <article class="proj" id="p-keepology" aria-labelledby="t-keepology">
       <div class="proj-head">
         <div class="proj-title"><img class="proj-icon" src="assets/icon_keepology.jpg" alt="" width="112" height="112"><div><div class="proj-name"><h3 id="t-keepology">Keepology</h3><span class="status">운영 중</span></div><p class="tag">요요를 막는 식욕 관리, 체중 유지 트레이닝 앱</p></div></div>
-        <div class="proj-links"><p class="stores"><a class="badge" href="https://apps.apple.com/kr/app/id6759776733" target="_blank" rel="noopener"><img src="assets/badge-app-store.svg" alt="App Store에서 Keepology 다운로드" width="120" height="40"></a><a class="badge gp" href="https://play.google.com/store/apps/details?id=com.keepology.android" target="_blank" rel="noopener"><img src="assets/badge-google-play.png" alt="Google Play에서 Keepology 다운로드" width="150" height="58"></a></p><p class="site-links"><a class="site-link" href="https://twothreefour.one" target="_blank" rel="noopener" title="회사 웹사이트"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>twothreefour.one</a><a class="site-link" href="https://keepology.ai" target="_blank" rel="noopener" title="서비스 랜딩 페이지"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>keepology.ai</a></p></div>
+        <p class="stores"><a class="badge" href="https://apps.apple.com/kr/app/id6759776733" target="_blank" rel="noopener"><img src="assets/badge-app-store.svg" alt="App Store에서 Keepology 다운로드" width="120" height="40"></a><a class="badge gp" href="https://play.google.com/store/apps/details?id=com.keepology.android" target="_blank" rel="noopener"><img src="assets/badge-google-play.png" alt="Google Play에서 Keepology 다운로드" width="150" height="58"></a></p><p class="site-links"><a class="site-link" href="https://twothreefour.one" target="_blank" rel="noopener" title="회사 웹사이트"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>twothreefour.one</a><a class="site-link" href="https://keepology.ai" target="_blank" rel="noopener" title="서비스 랜딩 페이지"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>keepology.ai</a></p>
       </div>
       <dl class="facts"><div><dt>기간</dt><dd class="num">2025.10 ~ 진행 중</dd></div><div><dt>회사</dt><dd>(주)이삼사일</dd></div><div><dt>플랫폼</dt><dd>iOS, Android</dd></div><div><dt>서비스</dt><dd>한국, 미국</dd></div><div><dt>언어</dt><dd>한국어, 영어</dd></div><div><dt>팀 구성</dt><dd>모바일 1명(본인), 백엔드 1명, 기획 1명, 디자인 1명. 백엔드 API 개발에도 일부 참여</dd></div></dl>
       <div class="media m6" aria-label="Keepology 화면">
