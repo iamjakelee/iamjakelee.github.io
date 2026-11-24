@@ -191,7 +191,8 @@
   .m6 .mrow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 28px; }
   .m6 .mrow + .media-label { margin-top: 12px; }
   .media .media-label { grid-column: 1 / -1; margin: 0; font-size: 0.8125rem; font-weight: 700; color: var(--sub); }
-  .m-wide { grid-template-columns: minmax(0, 1.467fr) minmax(0, 0.992fr); }
+  /* 수리의 달인: 견적 채팅은 한 줄 전체, 아래 줄은 지역 설정과 이용권 결제를 같은 높이로 (가로세로 비 0.992, 0.957) */
+  .m-wide { grid-template-columns: minmax(0, 0.992fr) minmax(0, 0.957fr); }
   .m-wide .span { grid-column: 1 / -1; }
   .mfb { grid-template-columns: minmax(0, 596px); justify-content: center; }
   .mfb .mrow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 28px; }
@@ -461,8 +462,9 @@
       </div>
       <dl class="facts"><div><dt>기간</dt><dd class="num">2023.04 ~ 2023.11</dd></div><div><dt>회사</dt><dd>(주)알파시스템</dd></div><div><dt>플랫폼</dt><dd>iOS, Android</dd></div><div><dt>팀 구성</dt><dd>모바일 1명(본인), 백엔드 1명, 디자인 1명</dd></div></dl>
       <div class="media m-wide" aria-label="수리의 달인 화면">
-        <figure><div class="shot"><img src="assets/soodal_chat.jpg" alt="견적 채팅 화면" width="1200" height="818" loading="lazy"></div><figcaption>견적 채팅</figcaption></figure>
+        <figure class="span"><div class="shot"><img src="assets/soodal_chat.jpg" alt="견적 채팅 화면" width="1200" height="818" loading="lazy"></div><figcaption>견적 채팅</figcaption></figure>
         <figure><div class="shot"><img src="assets/soodal_location.jpg" alt="지역 설정 화면" width="510" height="514" loading="lazy"></div><figcaption>지역 설정</figcaption></figure>
+        <figure><div class="shot"><img src="assets/soodal_pay.jpg" alt="달인용 구독권 선택 화면과 카카오페이, 토스페이 결제 수단 선택 화면" width="534" height="558" loading="lazy"></div><figcaption>이용권 결제</figcaption></figure>
       </div>
       <div class="story">
         <h4>해결한 문제</h4>
