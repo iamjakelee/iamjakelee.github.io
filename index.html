@@ -29,6 +29,7 @@
     try { t = localStorage.getItem('theme'); } catch (e) {}
     if (t !== 'light' && t !== 'dark') t = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', t);
+    document.documentElement.classList.add('js');
   })();
 </script>
 <style>
@@ -196,8 +197,13 @@
   .mfb .mrow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 28px; }
   .shot { overflow: hidden; border-radius: 10px; background: var(--line); }
   .shot img { width: 100%; height: auto; }
-  .phone { aspect-ratio: 360 / 782; padding: 6px; border-radius: 26px; background: var(--frame); box-shadow: 0 0 0 1px var(--frame-edge); }
+  /* 안쪽 회색 화면은 content-box 배경으로 깔아 이미지가 나타나기 전에도 보이게 함 */
+  .phone { aspect-ratio: 360 / 782; padding: 6px; border-radius: 26px; background: linear-gradient(#2a2828, #2a2828) content-box, var(--frame); box-shadow: 0 0 0 1px var(--frame-edge); }
   .phone > img, .phone > video { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; background: #2a2828; }
+  /* 이미지와 영상 포스터가 다 불러와지면 서서히 보이게 함. JS가 없으면 처음부터 보임 */
+  .js .phone > img, .js .phone > video, .js .shot img { opacity: 0; transition: opacity 0.3s ease; }
+  .js .phone > .is-loaded, .js .shot img.is-loaded { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .js .phone > img, .js .phone > video, .js .shot img { transition: none; } }
 
   /* 고민한 점: 선택지와 판단이 먼저 읽히도록 카드 안 옅은 파란 면 */
   .story { margin-top: 24px; padding: 20px 24px; border-radius: 12px; background: var(--accent-soft); }
@@ -493,6 +499,21 @@
 
 <script>
 {
+  // 이미지와 영상 포스터가 다 불러와지면 is-loaded를 붙여 서서히 보이게 한다. 실패해도 숨긴 채로 두지 않는다.
+  const show = (el) => el.classList.add('is-loaded');
+  document.querySelectorAll('.phone > img, .shot img').forEach((img) => {
+    if (img.complete) { show(img); return; }
+    img.addEventListener('load', () => show(img), { once: true });
+    img.addEventListener('error', () => show(img), { once: true });
+  });
+  document.querySelectorAll('.phone > video').forEach((v) => {
+    if (!v.poster) { show(v); return; }
+    const poster = new Image();
+    poster.onload = poster.onerror = () => show(v);
+    poster.src = v.poster;
+    v.addEventListener('loadeddata', () => show(v), { once: true });
+  });
+
   // 테마 버튼
   const root = document.documentElement;
   const btn = document.getElementById('themeBtn');
